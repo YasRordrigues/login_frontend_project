@@ -7,8 +7,11 @@ export const Button = styled.button`
     border-radius: 5px;
     width: 100%;
     cursor: pointer;
-    background-color: #046ee5;
+    background-color: #191970;
     color: white;
     font-weight: 600;
     max-width:350px;
+    :hover{
+        background-color:black;
+    }
 `;

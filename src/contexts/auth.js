@@ -12,23 +12,23 @@ export const AuthProvider = ({ children }) => {
 
     if (userToken && usersStorage) {
       const hasUser = JSON.parse(usersStorage)?.filter(
-        (user) => user.email === JSON.parse(userToken).email
+        (user) => user.usuario === JSON.parse(userToken).usuario
       );
 
       if (hasUser) setUser(hasUser[0]);
     }
   }, []);
 
-  const signin = (email, password) => {
+  const signin = (usuario, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
 
-    const hasUser = usersStorage?.filter((user) => user.email === email);
+    const hasUser = usersStorage?.filter((user) => user.usuario === usuario);
 
     if (hasUser?.length) {
-      if (hasUser[0].email === email && hasUser[0].password === password) {
+      if (hasUser[0].usuario === usuario && hasUser[0].password === password) {
         const token = Math.random().toString(36).substring(2);
-        localStorage.setItem("user_token", JSON.stringify({ email, token }));
-        setUser({ email, password });
+        localStorage.setItem("user_token", JSON.stringify({ usuario, token }));
+        setUser({ usuario, password });
         return;
       } else {
         return "E-mail ou senha incorretos";
@@ -38,10 +38,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signup = (email, password) => {
+  const signup = (usuario, password) => {
     const usersStorage = JSON.parse(localStorage.getItem("users_bd"));
 
-    const hasUser = usersStorage?.filter((user) => user.email === email);
+    const hasUser = usersStorage?.filter((user) => user.usuario === usuario);
 
     if (hasUser?.length) {
       return "Já tem uma conta com esse E-mail";
@@ -50,9 +50,9 @@ export const AuthProvider = ({ children }) => {
     let newUser;
 
     if (usersStorage) {
-      newUser = [...usersStorage, { email, password }];
+      newUser = [...usersStorage, { usuario, password }];
     } else {
-      newUser = [{ email, password }];
+      newUser = [{ usuario, password }];
     }
 
     localStorage.setItem("users_bd", JSON.stringify(newUser));

@@ -7,21 +7,24 @@ import useAuth from '../../hooks/useAuth'
 
 
 
+
+
+
 const Signin = () => {
     const{signin} = useAuth();
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
+    const [user, setUser] = useState('');
     const [senha, setSenha] = useState('');
     const [error, setError] = useState('');
 
     const handleLogin = () => {
-        if (!email | !senha ) {
+        if (!user | !senha ) {
           setError("Preencha todos os campos");
           return;
         }
     
-        const res = signin(email, senha);
+        const res = signin(user, senha);
     
         if (res) {
           setError(res);
@@ -34,13 +37,13 @@ const Signin = () => {
 
   return(
     <C.Container>
-        <C.Label>SISTEM LOGIN</C.Label>
+        <C.Label>PORTAS DO 2° ANDAR DO BLOCO DE PESQUISA E LAPISCO</C.Label>
         <C.Content>
             <Input
-            type= 'email'
-            placeholder= 'Digite seu E-mail'
-            value={email}
-            onChange = {(e)=> [setEmail(e.target.value), setError('')]}
+            type= 'user'
+            placeholder= 'Digite seu Usuário'
+            value={user}
+            onChange = {(e)=> [setUser(e.target.value), setError('')]}
             />
            <Input
             type= 'password'

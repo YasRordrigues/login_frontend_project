@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import Input from '../../components/Input'
-import Button from '../../components/Button'
 import * as C from "./styles"
 import{ Link, useNavigate} from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
+import Button from '../../components/Button'
 
 
 const Signup = () => {
   const {signup} = useAuth();
-  const [email, setEmail] = useState('');
+  const [user, setUser] = useState('');
   const [senha, setSenha] = useState('');
   const [senhaConf, setSenhaConf] = useState('');
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Signup = () => {
   const [error, setError] = useState('');
 
   const handleSignup = () =>{
-    if(!email | !senha | !senhaConf){
+    if(!user | !senha | !senhaConf){
         setError('Preencha todos os campos.')
         return;
     } else if(senha !== senhaConf) {
@@ -24,7 +24,7 @@ const Signup = () => {
       return
     }
 
-    const res = signup(email, senha);
+    const res = signup(user, senha);
 
     if(res){
       setError(res);
@@ -39,13 +39,13 @@ const Signup = () => {
 
   return (
     <C.Container>
-      <C.Label>SISTEM LOGIN</C.Label>
+      <C.Label>PORTAS DO 2 ANDAR DO BLOCO DE PESQUISA E LAPISCO</C.Label>
       <C.Content>
         <Input
-              type= 'email'
-              placeholder= 'Digite seu E-mail'
-              value={email}
-              onChange = {(e)=> [setEmail(e.target.value), setError('')]}
+              type= 'user'
+              placeholder= 'Digite seu  Usuário'
+              value={user}
+              onChange = {(e)=> [setUser(e.target.value), setError('')]}
               />
        <Input
             type= 'password'
@@ -60,7 +60,7 @@ const Signup = () => {
             onChange = {(e)=> [setSenhaConf(e.target.value), setError('')]}
             />
       <C.LabelError>{error}</C.LabelError>
-      <Button Text = "Entrar" onClick={handleSignup}/>
+      <Button Text = "Cadastrar" onClick={handleSignup}/>
       <C.LabelSignin>
         Já tem uma conta?
         <C.Strong>
