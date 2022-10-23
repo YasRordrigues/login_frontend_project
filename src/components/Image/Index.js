@@ -1,10 +1,13 @@
-import React from 'react'
-import LOGOLAPISCO from './/LOGOLAPISCO.png'
+import React from 'react';
+import * as C from './styles';
+import img1 from  '../../assets/LOGOLAPISCO.png';
 
-console.log(logo)
-
-function Header () {
-    <img src={LOGOLAPISCO}/>;
+function Images() {
+    return(
+        <C.Images>
+            <img src={img1}/>
+        </C.Images>
+    )
 }
 
-export default Header
+export default Images;

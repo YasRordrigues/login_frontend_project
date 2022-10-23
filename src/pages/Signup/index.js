@@ -4,6 +4,7 @@ import * as C from "./styles"
 import{ Link, useNavigate} from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
 import Button from '../../components/Button'
+import Images from '../../components/Image/Index'
 
 
 const Signup = () => {
@@ -39,7 +40,8 @@ const Signup = () => {
 
   return (
     <C.Container>
-      <C.Label>PORTAS DO 2 ANDAR DO BLOCO DE PESQUISA E LAPISCO</C.Label>
+      <Images />
+      <C.Label>PORTAS DO 2º ANDAR DO BLOCO DE PESQUISA E LAPISCO</C.Label>
       <C.Content>
         <Input
               type= 'user'

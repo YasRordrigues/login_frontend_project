@@ -4,11 +4,7 @@ import Button from '../../components/Button'
 import * as C from "./styles"
 import{ Link, useNavigate} from 'react-router-dom'
 import useAuth from '../../hooks/useAuth'
-
-
-
-
-
+import Images from '../../components/Image/Index'
 
 const Signin = () => {
     const{signin} = useAuth();
@@ -37,6 +33,7 @@ const Signin = () => {
 
   return(
     <C.Container>
+        <Images />
         <C.Label>PORTAS DO 2° ANDAR DO BLOCO DE PESQUISA E LAPISCO</C.Label>
         <C.Content>
             <Input
