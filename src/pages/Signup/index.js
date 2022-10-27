@@ -36,6 +36,18 @@ const Signup = () => {
     navigate('/');
 
   }
+//   useEffect(() => {
+//     api
+//       .post('http://127.0.0.1:8000/user/api/createUser',{
+//            nome:{user},
+//            password:{senha}
+// })
+//      .then((response) => setUser(response.data))
+//      .catch((err) => {
+//        console.error("ops! ocorreu um erro" + err);
+//      });
+//  }, []);
+     
 
 
   return (
